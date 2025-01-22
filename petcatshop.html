@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Pet Cat Shop</title>
+    <link rel="stylesheet" href="petcatshop.css" type="text/css">
+</head>
+
+<body>
+    <section class="home">
+        <div class="home-content">
+            <h3>Hallo CAT LOVERSS!!!</h3>
+            <h1>I'm Dwi Aulia Gevira <span>Owner di Pet Cat Shop😻</span></h1>
+            <p>Selamat datang di Pet Cat Shop!!<br>
+                Usaha ini mengandalkan komunitas untuk berkembang.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2>Form Pemesanan Pet Cat Shop🐱</h2>
+        <form id="orderForm">
+
+            <!-- Input untuk nama pelanggan -->
+            <label for="name">Nama Pelanggan:</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+
+            <!-- Input untuk alamat pelanggan -->
+            <label for="address">Alamat Pelanggan:</label>
+            <textarea id="address" name="address" placeholder="Masukkan alamat Anda" required></textarea>
+
+            <!-- Dropdown makanan kucing -->
+            <label for="menuFood">Daftar Makanan Kucing:</label>
+            <select id="menuFood" name="menuFood" required>
+                <option value="" disabled selected>Pilih makanan</option>
+            </select>
+
+            <label for="quantityFood">Jumlah:</label>
+            <input type="number" id="quantityFood" name="quantityFood" min="1" value="1">
+
+            <!-- Dropdown mainan kucing -->
+            <label for="menuToy">Daftar Mainan Kucing:</label>
+            <select id="menuToy" name="menuToy">
+                <option value="" disabled selected>Pilih mainan</option>
+            </select>
+
+            <label for="quantityToy">Jumlah:</label>
+            <input type="number" id="quantityToy" name="quantityToy" min="1" value="1">
+
+            <!-- Dropdown tempat tidur kucing -->
+            <label for="catBed">Daftar Tempat Tidur Kucing:</label>
+            <select id="catBed" name="catBed">
+                <option value="" disabled selected>Pilih tempat tidur</option>
+            </select>
+
+            <label for="quantityBed">Jumlah:</label>
+            <input type="number" id="quantityBed" name="quantityBed" min="1" value="1">
+
+            <!-- Checkbox aksesoris -->
+            <label for="accessories">Aksesoris (+ Rp 10.000):</label>
+            <input type="checkbox" id="accessories" name="accessories">
+
+            <!-- Ringkasan pesanan -->
+            <div class="summary">
+                <h3>Ringkasan Pesanan</h3>
+                <p id="orderSummary">Total Harga: Rp 0</p>
+            </div>
+
+            <!-- Tombol -->
+            <button type="button" onclick="confirmOrder()">Konfirmasi Pesanan</button>
+            <button type="button" onclick="resetForm()">Kembali</button>
+        </form>
+
+        <!-- Tabel detail pesanan -->
+        <div id="orderDetails" style="display:none;">
+            <h3>Detail Pesanan</h3>
+            <table>
+                <tr>
+                    <th>Nama Pelanggan</th>
+                    <th>Alamat</th>
+                    <th>Makanan Kucing</th>
+                    <th>Jumlah Makanan</th>
+                    <th>Mainan Kucing</th>
+                    <th>Jumlah Mainan</th>
+                    <th>Tempat Tidur Kucing</th>
+                    <th>Jumlah Tempat Tidur</th>
+                    <th>Aksesoris</th>
+                    <th>Total Harga</th>
+                </tr>
+                <tbody id="orderTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi yang dijalankan saat seluruh konten halaman selesai dimuat
+        window.onload = function () {
+            populateFoodMenu();  // Memanggil fungsi untuk mengisi dropdown makanan kucing
+            populateToyMenu();   // Memanggil fungsi untuk mengisi dropdown mainan kucing
+            populateCatBedMenu(); // Memanggil fungsi untuk mengisi dropdown tempat tidur kucing
+        }
+
+        // Fungsi untuk mengisi dropdown makanan kucing
+        function populateFoodMenu() {
+            var foodMenu = document.getElementById('menuFood');
+            var foods = ["Whiskas", "Me-O", "Royal Canin"];
+
+            foods.forEach(function (food) {
+                var option = document.createElement('option');
+                option.value = food;
+                option.textContent = food;
+                foodMenu.appendChild(option);
+            });
+        }
+
+        // Fungsi untuk mengisi dropdown mainan kucing
+        function populateToyMenu() {
+            var toyMenu = document.getElementById('menuToy');
+            var toys = ["Bola", "Tikus Mainan", "Tali Bulu"];
+
+            toys.forEach(function (toy) {
+                var option = document.createElement('option');
+                option.value = toy;
+                option.textContent = toy;
+                toyMenu.appendChild(option);
+            });
+        }
+
+        // Fungsi untuk mengisi dropdown tempat tidur kucing
+        function populateCatBedMenu() {
+            var bedMenu = document.getElementById('catBed');
+            var beds = ["Tempat Tidur Kecil", "Tempat Tidur Besar", "Kursi Gantung"];
+
+            beds.forEach(function (bed) {
+                var option = document.createElement('option');
+                option.value = bed;
+                option.textContent = bed;
+                bedMenu.appendChild(option);
+            });
+        }
+
+        // Fungsi untuk menghitung total harga dan menampilkan ringkasan pesanan
+        function confirmOrder() {
+            var name = document.getElementById('name').value;
+            var address = document.getElementById('address').value;
+            var food = document.getElementById('menuFood').value;
+            var quantityFood = document.getElementById('quantityFood').value;
+            var toy = document.getElementById('menuToy').value;
+            var quantityToy = document.getElementById('quantityToy').value;
+            var bed = document.getElementById('catBed').value;
+            var quantityBed = document.getElementById('quantityBed').value;
+            var accessories = document.getElementById('accessories').checked;
+
+            // Hitung harga
+            var totalPrice = 0;
+
+            if (accessories) totalPrice += 10000;
+
+            totalPrice += quantityFood * 5000;
+            totalPrice += quantityToy * 5000;
+            totalPrice += quantityBed * 5000;
+
+            document.getElementById('orderSummary').textContent = 'Total Harga: Rp ' + totalPrice;
+
+            // Update detail pesanan
+            var tableBody = document.getElementById('orderTableBody');
+            tableBody.innerHTML = ` 
+                <tr>
+                    <td>${name}</td>
+                    <td>${address}</td>
+                    <td>${food}</td>
+                    <td>${quantityFood}</td>
+                    <td>${toy}</td>
+                    <td>${quantityToy}</td>
+                    <td>${bed}</td>
+                    <td>${quantityBed}</td>
+                    <td>${accessories ? 'Ya (+Rp 10.000)' : 'Tidak'}</td>
+                    <td>Rp ${totalPrice}</td>
+                </tr>
+            `;
+
+            document.getElementById('orderDetails').style.display = 'block';
+        }
+
+        // Fungsi untuk mengatur ulang form
+        function resetForm() {
+            document.getElementById('orderForm').reset();
+            document.getElementById('orderDetails').style.display = 'none';
+            document.getElementById('orderSummary').textContent = 'Total Harga: Rp 0';
+        }
+
+    </script>
+</body>
+
+</html>

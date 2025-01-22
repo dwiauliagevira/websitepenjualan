@@ -1,0 +1,192 @@
+/* Mengatur font dan warna latar belakang keseluruhan */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Font utama untuk teks */
+    background-image: url('pinkk.jfif'); /* Latar belakang berupa gambar */
+    background-repeat: no-repeat; /* Gambar tidak diulang */
+    background-size: cover; /* Gambar menutupi seluruh area */
+    background-position: center; /* Gambar diposisikan di tengah */
+    color: #333; /* Warna teks default (abu gelap) */
+    padding: 50px; /* Padding di sekeliling konten body */
+    margin: 0; /* Menghapus margin default browser */
+}
+
+/* Section home (bagian pengantar di atas) */
+.home {
+    background-color: rgba(255, 252, 253, 0.7); /* Latar belakang berwarna pink pastel dengan transparansi */
+    padding: 50px 0; /* Padding atas dan bawah */
+    text-align: center; /* Teks rata tengah */
+    border-radius: 20px; /* Sudut melengkung untuk elemen section */
+    margin-bottom: 30px; /* Jarak bawah dengan elemen berikutnya */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus pada elemen */
+}
+
+.home-content {
+    max-width: 2000px; /* Lebar maksimal konten agar tetap rapi di layar besar */
+    margin: 0 auto; /* Memusatkan konten */
+    padding: 20px; /* Padding dalam konten */
+}
+
+/* Gaya heading level 3 */
+h3 {
+    font-size: 2.5em; /* Ukuran font besar untuk teks sambutan */
+    color: #ff1493; /* Warna pink cerah */
+    margin-bottom: 20px; /* Jarak bawah antara heading dan elemen berikutnya */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Font yang konsisten dengan body */
+}
+
+/* Gaya heading level 1 */
+h1 {
+    font-size: 3.5em; /* Ukuran font lebih besar untuk judul utama */
+    color: #333; /* Warna teks abu gelap */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Konsistensi font */
+    margin-bottom: 20px; /* Jarak bawah heading */
+    position: relative; /* Posisi relatif untuk memungkinkan efek tambahan seperti ::before atau ::after */
+}
+
+h1 span {
+    color: #ff69b4; /* Warna khusus untuk teks di dalam <span> */
+    font-weight: bold; /* Menebalkan teks */
+    font-style: italic; /* Memberi efek miring */
+}
+
+/* Gaya paragraf dalam section home */
+p {
+    font-size: 1.4em; /* Ukuran font sedang untuk teks deskripsi */
+    line-height: 1.8; /* Jarak antar baris lebih longgar untuk keterbacaan */
+    color: #333; /* Warna teks abu gelap */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Konsistensi font */
+}
+
+/* Gaya untuk container utama (form) */
+.container {
+    background-color: #fff0f5; /* Latar belakang putih dengan sedikit sentuhan warna pink */
+    border: 3px solid #ff69b4; /* Border berwarna pink tua */
+    border-radius: 30px; /* Sudut melengkung besar untuk efek lembut */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus pada kontainer */
+    max-width: 2000px; /* Lebar maksimal agar tetap rapi */
+    margin: 0 auto; /* Memusatkan kontainer */
+    padding: 30px; /* Padding dalam konten */
+    text-align: center; /* Teks rata tengah */
+    position: relative; /* Memungkinkan penggunaan dekorasi sebelum dan sesudah konten */
+}
+
+/* Gaya untuk label dan input */
+label {
+    font-weight: bold; /* Menebalkan teks label */
+    font-size: 1.1em; /* Ukuran font lebih besar untuk kejelasan */
+    display: block; /* Setiap label berada di baris baru */
+    margin-bottom: 10px; /* Jarak bawah antara label dan input */
+}
+
+input[type="text"], textarea, select {
+    width: 80%; /* Input dan textarea mengisi seluruh lebar kontainer */
+    padding: 10px; /* Padding di dalam input */
+    border: 2px solid #ff69b4; /* Border pink */
+    border-radius: 10px; /* Sudut melengkung untuk input */
+    margin-bottom: 35px; /* Jarak bawah antar input */
+    font-size: 1em; /* Ukuran font standar */
+    background-color: #f6cede; /* Latar belakang pink muda */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan kecil pada input */
+}
+
+/* Gaya untuk checkbox aksesoris */
+input[type="checkbox"] {
+    transform: scale(1.5); /* Memperbesar ukuran checkbox agar lebih mudah diklik */
+    margin: 0 10px; /* Jarak kanan checkbox */
+}
+
+/* Gaya untuk tombol konfirmasi */
+button {
+    background-color: #ff69b4; /* Warna latar belakang tombol pink */
+    color: white; /* Warna teks tombol putih */
+    padding: 10px 20px; /* Padding dalam tombol */
+    border: none; /* Menghilangkan border default */
+    border-radius: 10px; /* Sudut melengkung pada tombol */
+    font-size: 1.2em; /* Ukuran font yang lebih besar untuk tombol */
+    cursor: pointer; /* Pointer berubah menjadi tangan saat diarahkan */
+    transition: 0.3s; /* Efek transisi halus saat hover */
+    margin-top: 20px; /* Jarak atas tombol dari elemen sebelumnya */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
+}
+
+button:hover {
+    background-color: #f78ac4; /* Warna berubah menjadi pink lebih cerah saat dihover */
+    transform: scale(1.05); /* Sedikit memperbesar tombol saat dihover */
+}
+
+/* Gaya untuk ringkasan pesanan */
+.summary {
+    background-color: #fff5ee; /* Latar belakang pink sangat muda */
+    border: 2px dashed #ff69b4; /* Border bergaris putus-putus */
+    padding: 20px; /* Padding dalam ringkasan */
+    border-radius: 15px; /* Sudut melengkung pada ringkasan */
+    margin-bottom: 20px; /* Jarak bawah */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan pada ringkasan */
+}
+
+.summary h3 {
+    color: #ff69b4; /* Warna teks pink */
+    font-size: 1.7em; /* Ukuran font besar untuk heading ringkasan */
+}
+
+/* Gaya tabel konfirmasi pesanan */
+#orderDetails table {
+    width: 100%; /* Tabel mengisi seluruh lebar kontainer */
+    border-collapse: collapse; /* Menggabungkan border tabel menjadi satu */
+    margin-top: 20px; /* Jarak atas tabel */
+}
+
+#orderDetails th, #orderDetails td {
+    padding: 12px; /* Padding dalam sel */
+    border: 2px solid #ff69b4; /* Border pink pada sel */
+    text-align: center; /* Teks rata tengah di setiap sel */
+    font-size: 1.1em; /* Ukuran font standar */
+}
+
+#orderDetails th {
+    background-color: #ff69b4; /* Latar belakang sel header */
+    color: white; /* Warna teks pada header tabel */
+}
+
+/* Dekorasi tambahan berupa ikon kucing */
+.container::before {
+    content: '🐈'; /* Menampilkan emoji kucing sebelum kontainer */
+    font-size: 5em; /* Ukuran emoji besar */
+    position: absolute; /* Posisi absolut relatif terhadap kontainer */
+    top: -50px; /* Posisi di atas kontainer */
+    left: -50px; /* Posisi di sebelah kiri kontainer */
+    color: #efa0c7; /* Warna pink terang */
+}
+
+.container::after {
+    content: '🐾'; /* Menampilkan emoji jejak kaki kucing setelah kontainer */
+    font-size: 5em; /* Ukuran emoji besar */
+    position: absolute; /* Posisi absolut */
+    bottom: -40px; /* Posisi di bawah kontainer */
+    right: -40px; /* Posisi di sebelah kanan kontainer */
+    color: #ff69b4; /* Warna pink tua */
+}
+
+/* Gaya responsif untuk tampilan di perangkat lebih kecil */
+@media (max-width: 768px) {
+    body {
+        padding: 20px; /* Mengurangi padding pada body */
+    }
+
+    .container {
+        padding: 20px; /* Mengurangi padding pada kontainer */
+    }
+
+    h1, h3, p {
+        font-size: 1.2em; /* Mengurangi ukuran font heading dan paragraf */
+    }
+
+    button {
+        font-size: 1em; /* Mengurangi ukuran font tombol */
+    }
+
+    .container::before,
+    .container::after {
+        font-size: 3em; /* Mengurangi ukuran dekorasi pada layar kecil */
+    }
+}
